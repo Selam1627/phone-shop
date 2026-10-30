@@ -1,0 +1,54 @@
+[
+  {
+    "id": "nova-x1",
+    "brand": "Nova",
+    "model": "X1",
+    "price": 69900,
+    "imageUrl": "https://placehold.co/400x400?text=Nova+X1",
+    "description": "Compact flagship with a bright OLED display.",
+    "storageGb": 128,
+    "ramGb": 8,
+    "screenInches": 6.1,
+    "color": "Black",
+    "stock": 12
+  },
+  {
+    "id": "nova-x1-pro",
+    "brand": "Nova",
+    "model": "X1 Pro",
+    "price": 99900,
+    "imageUrl": "https://placehold.co/400x400?text=Nova+X1+Pro",
+    "description": "Large screen and a triple camera system.",
+    "storageGb": 256,
+    "ramGb": 12,
+    "screenInches": 6.7,
+    "color": "Silver",
+    "stock": 5
+  },
+  {
+    "id": "orbit-5",
+    "brand": "Orbit",
+    "model": "5",
+    "price": 34900,
+    "imageUrl": "https://placehold.co/400x400?text=Orbit+5",
+    "description": "Mid-range phone with a two-day battery.",
+    "storageGb": 128,
+    "ramGb": 6,
+    "screenInches": 6.5,
+    "color": "Blue",
+    "stock": 30
+  },
+  {
+    "id": "orbit-5-lite",
+    "brand": "Orbit",
+    "model": "5 Lite",
+    "price": 19900,
+    "imageUrl": "https://placehold.co/400x400?text=Orbit+5+Lite",
+    "description": "Affordable everyday phone.",
+    "storageGb": 64,
+    "ramGb": 4,
+    "screenInches": 6.4,
+    "color": "Green",
+    "stock": 0
+  }
+]
