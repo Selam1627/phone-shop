@@ -73,7 +73,7 @@ docker build --target prod -t phone-shop .     # production image
 Branches:
 
 - `main`: released code. `develop`: integration branch.
-- Never commit directly to `main` or `develop`.
+- Never commit directly to `main` or `develop`. The only commits on `develop` are `--no-ff` merges of validated branches (step 6).
 
 For each new task:
 
@@ -83,8 +83,14 @@ For each new task:
    Example: `feature/cart-quantity-selector`.
 3. Make small, focused commits. One logical change per commit.
 4. Before committing, lint and tests must pass in Docker.
-5. Ask the user before pushing or opening a PR. PRs target `develop`.
-6. Never force-push, rewrite shared history, or merge into `main` unless the user explicitly asks.
+5. Ask the user before pushing the branch.
+6. After the user validates the branch, merge it into `develop` and push. No pull requests.
+   ```bash
+   git checkout develop && git pull
+   git merge --no-ff <branch>
+   git push origin develop
+   ```
+7. Never force-push, rewrite shared history, or merge into `main` unless the user explicitly asks.
 
 ### Conventional Commits
 
