@@ -6,7 +6,7 @@ Guidance for Claude when working in this repository.
 
 Online shop for mobile phones. Single-page app in Vue 3 + TypeScript: phone catalog with filters, product detail, cart and checkout. Frontend only for now: data comes from mock fixtures behind a service layer, so a real REST API can replace them later without changing views or stores.
 
-Current status: docs only. The Vue scaffold, `Dockerfile` and `docker-compose.yml` described below are not created yet.
+Current status: scaffold in place (routes with placeholder views, shared types, mock phone fixtures). No stores, services or components yet.
 
 ## Stack
 
@@ -42,6 +42,7 @@ Tests: Vitest + Vue Test Utils, `*.spec.ts` colocated next to the file under tes
 - Data flow: `views -> stores -> services -> mocks/API`. Components never fetch data or import services directly.
 - Components receive data via props and emit events; business logic lives in stores or composables.
 - All shared models are typed in `src/types/`. No `any` unless justified in a comment.
+- Money is stored as integer euro cents (`price`, `total`); format it only for display.
 - Use `<script setup lang="ts">` and the Composition API. No Options API.
 - Style with Tailwind utilities. Use scoped CSS only when Tailwind can't express it.
 - Services return typed Promises so the mock implementation can be swapped for HTTP calls with the same interface.
@@ -51,8 +52,8 @@ Tests: Vitest + Vue Test Utils, `*.spec.ts` colocated next to the file under tes
 - `Dockerfile` (multi-stage):
   - `dev`: Node LTS, runs the Vite dev server with `--host` on port 5173.
   - `build`: runs `npm ci && npm run build` to produce `dist/`.
-  - `prod`: nginx serving `dist/` with SPA fallback (`try_files $uri /index.html`).
-- `docker-compose.yml`: service `web` (target `dev`), port `5173:5173`, source bind-mounted for hot reload, named volume for `node_modules`.
+  - `prod`: nginx serving `dist/` with SPA fallback (`try_files $uri /index.html`), configured in `nginx.conf`.
+- `docker-compose.yml`: service `web` (target `dev`), port `5173:5173`, source bind-mounted for hot reload, named volume for `node_modules`. `docker compose up` runs `npm install` before starting Vite, so the volume follows `package-lock.json`. `VITE_WATCH_POLLING=true` enables file polling, because file events don't cross the Windows/macOS bind mount.
 - Mock data lives in `src/mocks`; there is no separate mock API container.
 - Run every Node command through compose, not on the host.
 
