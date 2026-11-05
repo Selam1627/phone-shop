@@ -6,7 +6,7 @@ Guidance for Claude when working in this repository.
 
 Online shop for mobile phones. Single-page app in Vue 3 + TypeScript: phone catalog with filters, product detail, cart and checkout. Frontend only for now: data comes from mock fixtures behind a service layer, so a real REST API can replace them later without changing views or stores.
 
-Current status: scaffold in place (routes with placeholder views, shared types, mock phone fixtures). No stores, services or components yet.
+Current status: catalog page (`/phones`) lists the mock phones via `productService` and the `products` store. Detail, cart and checkout views are still placeholders.
 
 ## Stack
 
