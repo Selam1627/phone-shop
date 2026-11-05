@@ -32,7 +32,7 @@ describe('PhoneCard', () => {
 
     expect(wrapper.text()).toContain('Nova')
     expect(wrapper.find('h2').text()).toBe('X1')
-    expect(wrapper.text()).toContain('€699.00')
+    expect(wrapper.text()).toContain('699,00 €')
     expect(wrapper.find('[data-test="image-placeholder"]').exists()).toBe(true)
   })
 

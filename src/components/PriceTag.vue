@@ -6,7 +6,7 @@ const props = defineProps<{
   cents: number
 }>()
 
-const formatter = new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR' })
+const formatter = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' })
 
 const formatted = computed(() => formatter.format(props.cents / 100))
 </script>
