@@ -57,6 +57,10 @@ Tests: Vitest + Vue Test Utils, `*.spec.ts` colocated next to the file under tes
 - Mock data lives in `src/mocks`; there is no separate mock API container.
 - Run every Node command through compose, not on the host.
 
+## Deployment
+
+Hosted on Vercel. `vercel.json` rewrites every path to `/index.html` so client-side routes like `/phones` work on direct load; keep it in sync with the nginx SPA fallback.
+
 ### Commands
 
 ```bash
